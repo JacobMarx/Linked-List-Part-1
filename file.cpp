@@ -4,9 +4,10 @@ using namespace std;
 
 int main()
 {
-  float input = 1.23456789;
+  int input = 0;
   cin >> input;
-  cout << "You entered:" << input << endl;
+  if (input == 3)
+    cout << "You got in a 3" << endl;
   cout << input;
   return 0;
 }
