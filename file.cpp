@@ -4,10 +4,9 @@ using namespace std;
 
 int main()
 {
-  int input;
+  float input = 1.23456789;
   cin >> input;
   cout << "You entered:" << input << endl;
-  input = input + 5;
   cout << input;
   return 0;
 }
