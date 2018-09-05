@@ -4,7 +4,6 @@
 using namespace std;
 
 int main()
-{
   {
    int answer = rand() % 100 + 1;
    int guess;
@@ -14,11 +13,11 @@ int main()
   while (winner != true) {
      cin >> guess;
      if (guess > answer) {
-        cout << "You guessed " << guess << "the answer is lower" << endl;
+        cout << "You guessed " << guess << " the answer is lower" << endl;
         guesscount += 1;
      }
      if (guess < answer) {
-        cout << "You guessed " << guess << "the answer is higher" << endl;
+        cout << "You guessed " << guess << " the answer is higher" << endl;
         guesscount += 1;
      }
      if (guess == answer) {
@@ -29,4 +28,4 @@ int main()
   }
   cout << "It took you " << guesscount << "tries!!!" << endl;
   return 0;
- }
+  }
