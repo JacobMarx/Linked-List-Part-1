@@ -1,3 +1,9 @@
+/*
+  Jacob Marx Date:9/13/18 
+  Purpose: Checks if an input is a palindrome
+ */
+
+
 #include <iostream>
 #include <cstring>
 #include <string.h>
@@ -12,45 +18,58 @@ int main() {
   
   cin.get(input, 80);
   cin.get();
-  int count = 0;
+
+  int countg = 0;
+  int countb = 0;
   bool palindrome = true;
   bool run = true;
 
-  for (int i = 0; i < 80; i++) {
-    if (input[i] >= 48 && input[i] <= 57 || input[i] >= 65 && input[i] <= 90
-	|| input[i] >= 97 && input[i] <= 122) {
-      count ++;
+  for (int i = 0; i < 80; i++) {//this for look goes through the input chracter array to count  the amount of numbers and letters in the input
+    if ((input[i] >= 'A' && input[i] <= 'Z') || (input[i] >= 'a' && input[i] <= 'z')
+	|| (input[i] >= '0' && input[i] <= '9')) {
+      countg++;
     }
+    countb++;
   }
-  cout << input << endl;
-  cout << "count: " << count << endl;
 
-  char clean[count-1];
-  for (int i = 0; i < count-1; i++) {
+  if (countg == 0) {
+    palindrome = false;
+  }
+
+  //cout << input << endl;
+  //cout << "count: " << countg << endl;
+
+  char clean[countb-countg-1];
+  for (int i = 0; i < countg-1; i++) {//this for loop inserts null chracters into the 'cleaned' array
     clean[i] = 0x00;
   }
+  
   int index = 0;
 
-  for (int i = 0; i <80; i++) {
-    if (input[i] >= 0 && input[i] <= 9 || input[i] >= 65 && input[i] < 90
-	|| input[i] > 97 && input[i] <= 122){
+  for (int i = 0; i <80; i++) {//this for loop takes all letters and numbers and puts them in   the 'clean' array
+    if ((input[i] >= '0' && input[i] <= '9') || (input[i] >= 'A' && input[i] < 'Z')
+	|| (input[i] >= 'a' && input[i] <= 'z')){
       clean[index] = input[i];
       index++;
     }
   }
-  cout << clean << endl;
-  count--;
-  while (run == true) {
-    for (int i = 0; i <= count; i++) {
-      if (clean[i] == clean[count]) {
+
+  clean[countg] = 0x00;
+  
+  //cout << clean << endl;
+  countg--;
+  
+  while (run == true && countg > 0) {
+    for (int i = 0; i <= countg; i++) {
+      if (clean[i] == clean[countg]) {
 	palindrome = true;
-	count--;
+	countg--;
       }
-      if (clean[i] != clean[count]) {
+      if (clean[i] != clean[countg]) {//makes palindrome false and stops while loop
 	palindrome = false;
 	run = false;
       }
-      if (palindrome == true && count == 0) {
+      if (palindrome == true && countg == 0) {//stops while loop
 	run = false;
       }
     }
