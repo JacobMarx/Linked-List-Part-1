@@ -36,10 +36,10 @@ int main() {
     palindrome = false;
   }
 
-  //cout << input << endl;
-  //cout << "count: " << countg << endl;
+  cout << input << endl;
+  cout << "count: " << countg << endl;
 
-  char clean[countb-countg-1];
+  char clean[countg];
   for (int i = 0; i < countg-1; i++) {//this for loop inserts null chracters into the 'cleaned' array
     clean[i] = 0x00;
   }
@@ -56,22 +56,26 @@ int main() {
 
   clean[countg] = 0x00;
   
-  //cout << clean << endl;
-  countg--;
+  cout << clean << endl;
+
+  int right = countg-1;
   
-  while (run == true && countg > 0) {
-    for (int i = 0; i <= countg; i++) {
-      if (clean[i] == clean[countg]) {
+  while (run == true) {
+    for (int i = 0; i < countg; i++) {
+      cout << clean[i] << ", " << clean[right] << endl;
+      if (clean[i] == clean[right]) {
 	palindrome = true;
-	countg--;
+	right--;
       }
-      if (clean[i] != clean[countg]) {//makes palindrome false and stops while loop
+      if (clean[i] != clean[right] && right > 0) {//makes palindrome false and stops while loop
 	palindrome = false;
 	run = false;
       }
-      if (palindrome == true && countg == 0) {//stops while loop
+      if (palindrome == true && right == 0) {//stops while loop
 	run = false;
+	palindrome = true;
       }
+      // cout << "l: " << clean[i] << endl << "r: " << clean[countg] << endl;
     }
   }
 
