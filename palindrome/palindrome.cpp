@@ -63,6 +63,10 @@ int main() {
   while (run == true) {
     for (int i = 0; i < countg; i++) {
       cout << clean[i] << ", " << clean[right] << endl;
+      if (right == 0) {
+	palindrome = true;
+	run = false;
+      }
       if (clean[i] == clean[right]) {
 	palindrome = true;
 	right--;
