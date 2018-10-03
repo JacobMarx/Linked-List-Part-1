@@ -5,21 +5,48 @@
 #include <iostream>
 
 using namespace std;
-void moves(char array[][3]);
-void printBoard(char print[][3]);
+void moves(char** here);
+void printBoard(char** print);
 //void checkWin;
 int move = 1;
+bool playing = true;
 
 int main() {
-  char board[3][3];
-  printBoard(board);
-  moves(&board);
+  char**  boardPtr = new char*[3];
+  for (int i = 0; i < 3; i++) {
+    boardPtr[i] = new char[3];
+  }
+  while (playing == true) {
+    printBoard(boardPtr);
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      cout << boardPtr[i][j];
+    }
+  }
+  
+  moves(boardPtr);
   //checkWin();
+  //From let_me_be on Stack Overflow, retrived 10/3
+  for (int i = 0; i < 3; i++) {
+    delete[] boardPtr[i];
+  }
+  delete[] boardPtr;
+  }
+ 
 }
 
-void moves(char &get[][3]) {
-  char x;
-  char y;
+void moves(char** here) {
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      cout << here[i][j] << endl;
+    }
+  }
+  char column[2] = {0};
+  char row[2] = {0};
+
+  column[1] = '1';
+  row[1] = '1';
+  
 
   if (move == 1) {
     cout << "it is x's turn enter fsomejshltguthslfd" << endl;
@@ -28,43 +55,55 @@ void moves(char &get[][3]) {
     cout << "it is o's tuen enter something" << endl;
   }
   
-  count << "enter your column" << endl;
-  cin.get(x, 1);
+  cout << "enter your column" << endl;
+  cin.get(column, 2);
   cin.clear();
-  cin.ignore(10000, 0x00);
-  count << "enter the row" << endl;
-  cin.get(y, 1);
+  cin.ignore(10000, '\n');
+  cout << "enter the row" << endl;
+  cin.get(row, 2);
   cin.clear();
-  cin.ignore(10000, 0x00);
+  cin.ignore(10000, '\n');
 
-  if (move == 1) {
-    get[x][d-y] = 'X';
+  cout << column[0] << ", " << row[0] << endl;
+  int c = (int)column[0];
+  int r = (int)row[0];
+  cout << c << ", " << r << endl;
+  
+    here[1][1] = 'X';
+    cout << here[1][1] << endl;
     move++;
-  }
+    cout << "hi" << endl;
+    printBoard(here);
+    cout << "hi" << endl;
+  
+
   if (move == 2) {
-    get[x][d-y] = 'X';
+    here[c-49][r-97] = 'O';
     move--;
   }
   
- return;
+  
+  return;
 }
 
-void printBoard(char print[][3]) {
+void printBoard(char** print ) {
+  
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      print[i][j];
+      
+    }
+  }
+
+  //for (int i = 0; i < 3; i++) {
+  //for (int j = 0; j < 3; j++) {
+  //  print[i][j] = 'x';
+  //}
+  //}
+
   char secOne[4];
   char secTwo[4];
   char secThree[4];
-
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++) {
-      print[i][j] = 0x00;
-    }
-  }
-
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 3; j++) {
-      print[i][j] = 'x';
-    }
-  }
   
   for (int i = 0; i < 3 ; i++) {
     secOne[i] = print[0][i];
