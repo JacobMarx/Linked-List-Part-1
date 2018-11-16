@@ -1,0 +1,18 @@
+#include <iostream>
+#include "videogame.h"
+#include "media.h"
+
+using namespace std;
+
+int main() {
+  videogame* vg = new videogame();
+  media* m;
+
+  m = vg;
+  m->printType();
+
+    cout << "hi" << endl;
+  
+  
+}
+

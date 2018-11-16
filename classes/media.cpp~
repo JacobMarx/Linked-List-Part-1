@@ -1,0 +1,13 @@
+#include <iostream>
+#include "videogame.h"
+
+using namespace std;
+
+int main() {
+
+  videogame spooderman;
+  spooderman.print();
+  
+  
+}
+
