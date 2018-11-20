@@ -2,8 +2,9 @@
 #include "videogame.h"
 #include "media.h"
 #include <cstring>
+#include <vector>
 
-void add();
+media* add();
 void clear(char* ar);
 
 using namespace std;
@@ -26,19 +27,19 @@ int main() {
   if (strcmp("ADD", input) == 0) {
     data.push_back(add());
   }
-  /*
-  videogame* vg = new videogame();
-  media* m;
+  
+  // videogame* vg = new videogame();
+  //media* m;
 
-  m = vg;
-  m->printType();
+  //m = vg;
+  //m->printType();
 
-    cout << "hi" << endl;
-  */
+  //cout << "hi" << endl;
+  
   
 }
 
-Media* add() {
+media* add() {
   char input[6];
   clear(input);
   cout << "What type of media do you want to add?" << endl;
@@ -46,34 +47,35 @@ Media* add() {
   cin.clear();
   cin.ignore(1000, '\n');
 
-  if (strcmp("GAME", input) = 0) {
-    videogame* vg = new vide=ogame();
+  if (strcmp("GAME", input) == 0) {
+    videogame* vg = new videogame();
     // Get all of the variables as input
-    float newrating;
-    char* newtitle;
-    int newyear;
-    char* newpublisher;
+    float newrating = 0;
+    char* newtitle = 0;
+    int newyear = 0;
+    char* newpublisher = 0;
 
     // Get values via user input
     cout << "what is the title" << endl;
     cin.get(newtitle, 50);
     cin.clear();
-    cing.ignore(1000, '\n');
+    cin.ignore(1000, '\n');
     cout << "what is the rating?" << endl;
     cin >> newrating;
     
     // Add to vg
-    vg.setTitle(newtitle);
-    vg.setYear(newyear);
-    vg.setPublisher(newpublisher);
-    vg.setRating(newrating);
+    vg->setTitle(newtitle);
+    vg->setYear(newyear);
+    vg->setPublisher(newpublisher);
+    vg->setRating(newrating);
 
     return vg;
   }
+  return new media();
 }
 
 void clear(char* ar) {
-  for(int i = 0; i < strlen(ar); i++) {
+  for(unsigned int i = 0; i < strlen(ar); i++) {
     ar[i] = '\0';
   }
 }

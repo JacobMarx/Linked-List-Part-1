@@ -1,16 +1,23 @@
 #include "videogame.h"
-
+#include <cstring>
 using namespace std;
 
-
-/*
-//Constructor
-videoGame::videoGame(char*title[], int year, char* publisher[], float rating){
-  title = t;
+videogame::videogame() {
+  publisher = new char;
+  title = 0;
   year = 0;
-  publisher = pub;
   rating = 0;
 }
+
+//Constructor
+videogame::videogame(char* pub, float rating){
+  publisher = new char[strlen(pub) + 1];
+  strcpy(publisher, pub);
+  rating = 0;
+  year = 0;
+  title = 0;
+}
+/*
 
 //Copy constructor
 videoGame::videoGame(const videoGame& source) {
@@ -32,6 +39,8 @@ void videogame::setRating(float rat) {
   rating = rat;
 }
 
-videogame::videogame() {
-
+void videogame::setPublisher(char* pub) {
+  delete publisher;
+  publisher = new char[strlen(pub) + 1];
+  strcpy(publisher, pub);
 }

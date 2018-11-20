@@ -13,7 +13,7 @@ class media {
   virtual void setTitle(char*);
   virtual void setYear(int);
   
- protected:
+ private:
   char* title;
   int year;
 };

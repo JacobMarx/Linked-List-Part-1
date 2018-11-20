@@ -10,12 +10,14 @@ class videogame : public media {
  public:
   void printType();
 
-  void setRating();
+  void setRating(float);
 
-  void setPublisher();
+  void setPublisher(char*);
   
   //Constructor
   videogame();
+
+  videogame(char*, float);
 
   //Copy Constructor
   //videogame(const videogame& source);

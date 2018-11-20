@@ -1,0 +1,42 @@
+#include <iostream>
+
+using namespace std;
+
+void ADD(vector <Student*>* list);
+
+struct Student {
+  char firstN[15];
+  char lastN[15];
+  int id;
+  float gpa;
+};
+
+int main() {
+  bool running = true;
+  while (running == true) {
+  char input[7];
+  input[6] = '\0';
+  vector <Student*>* vect = new vector<Student*>();
+  cout << "Do you want to ADD, DELETE, or LIST students type your answer. (e.g. 'ADD')" << endl;
+  cin.get(input, 6);
+  cin.get();
+     if (input == "ADD") {
+       ADD(vect);
+     }
+  }
+}
+
+void ADD(vector <Student*>* list) {
+  Student* newStudent = new Student();
+  cout << "What is the students first name?" << endl;
+  cin >> newStudent -> firstN;
+  cout << "What is the student's last name?" << endl;
+  cin >> newStudent -> lastN;
+  cout << "Enter the studen'ts id number. Maximum of 6 characters." << endl;
+  cin >> newStudent -> id;
+  cout << "What is the student's gpa" << endl;
+  cin >> newStudent -> gpa;
+  list.push_back(temp);
+  return;
+}
+
