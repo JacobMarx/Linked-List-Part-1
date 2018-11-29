@@ -9,6 +9,10 @@ videogame::videogame() {
   rating = 0;
 }
 
+videogame::getType() {
+    return 1;
+  }
+
 //Constructor
 videogame::videogame(char* pub, float rating){
   publisher = new char[strlen(pub) + 1];
@@ -31,16 +35,21 @@ videoGame::videoGame(const videoGame& source) {
   strcpy(title,source.title); 
 }
 */
-void videogame::printType() {
-  cout << "hola como estas you tengo no idea que yo haciendo" << endl;
-}
 
 void videogame::setRating(float rat) {
   rating = rat;
 }
 
 void videogame::setPublisher(char* pub) {
-  delete publisher;
+  delete[] publisher;
   publisher = new char[strlen(pub) + 1];
   strcpy(publisher, pub);
+}
+
+char* videogame::getPublisher() {
+  return publisher;
+}
+
+int videogame::getRating() {
+  return rating;
 }

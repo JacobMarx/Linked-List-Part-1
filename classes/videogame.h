@@ -8,12 +8,15 @@
 class videogame : public media {
 
  public:
-  void printType();
+  int getType();
 
   void setRating(float);
 
   void setPublisher(char*);
-  
+
+  char* getPublisher();
+
+  int getRating();  
   //Constructor
   videogame();
 

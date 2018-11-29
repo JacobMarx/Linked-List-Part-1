@@ -12,8 +12,10 @@ class media {
   virtual void printType();
   virtual void setTitle(char*);
   virtual void setYear(int);
+  void getTitle();
+  void getYear();
   
- private:
+ protected:
   char* title;
   int year;
 };
