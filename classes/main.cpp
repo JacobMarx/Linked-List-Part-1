@@ -26,6 +26,9 @@ int main() {
   if (strcmp("ADD", input) == 0) {
       data.push_back(add());
   }
+  if (strcmp("DELETE", input) == 0) {
+    //delete
+  }
   vector<media*>::iterator it;
   for(it = data.begin(); it != data.end(); ++it) {
     cout << (*it)->getTitle() << endl;
@@ -35,6 +38,11 @@ int main() {
     if((*it)->getType()== 1) {
       cout << dynamic_cast<videogame*>(*it)->getRating() << endl;
       cout << dynamic_cast<videogame*>(*it)->getPublisher() < endl;
+    }
+    if((*it)-getType() == 2) {
+      cout << dynamic_cast<music*>(*it)->getPublisher() << endl;
+      cout << dynamic_cast<music*>(*it)->getDurationg() << endl;
+      cout << dynamic_cast<music*>(*it)->getArtist() << endl;
     }
   }
   
@@ -84,6 +92,47 @@ media* add() {
     vg->setRating(newrating);
     
     return vg;
+  }
+
+  if (strcmp("MUSIC", input) == 0) {
+    music* m = new music();
+    //Get all of the variavle as input
+    int newduration = 0;
+    char* newartist = new char[51];
+    int newyear = 0;
+    char* newpublisher = new char[51];
+    char* newtitle = new char[51];
+
+    //Get values via user input
+    cout << "what is the title?" << endl;
+    cin.get(newtitle, 50);
+    cin.clear();
+    cin.ignore(1000, '\n');
+    cout << "what is the duration?" << endl;
+    cin >> newduration;
+    cout << "what is the artist?" << endl;
+    cin.get(newartist, 50);
+    cin.clear();
+    cin.ignore(1000, '\n');
+    cout << "what is the publisher?" << endl;
+    cin.get(newpublisher, 50);
+    cin.clear();
+    cin.ignore(1000, '\n');
+    cout << "what is the title?" << endl;
+    cin << newtitle;
+
+    //Add to m
+    m->setTitle(newtitle);
+    m->setYear(newyear);
+    m->setPublisher(newpublisher);
+    m->setDuration(newduration);
+    m->setArtist(newartist);
+
+    return m;
+  }
+      
+  if (strcmp("MOVIE", input) == 0) {
+
   }
   return 0;
 }
