@@ -6,19 +6,21 @@
 
 media* add();
 void clear(char* ar);
+void look(char* array);
+void remove(char* array);
 
 using namespace std;
 
 int main() {
-
+  bool use = true;
   vector<media*> data;
-  
+  while(use == true) {
   char input[7];
   input[0] = 'a';
   cout << input << endl;
   clear(input);
   cout << input << endl;
-  cout << "what would you like to do? Add, , or  a meadia?" << endl;
+  cout << "what would you like to do? ADD, DELETE, or SEARCH for a media?" << endl << "You can also type QUIT to exit the program." << endl;
   cin.get(input, 6); 
   cin.clear();
   cin.ignore(10000, '\n');
@@ -27,10 +29,33 @@ int main() {
       data.push_back(add());
   }
   if (strcmp("DELETE", input) == 0) {
-    //delete
+    char title[51];
+    cout << "what is the title of the media you want to delete?" << endl;
+    clear(title);
+    cin.get(title, 50);
+    cin.clear();
+    cin.ignore(1000. '\n');
+    remove(title);
   }
+  if (strcmp("SEARCH", input) == 0) {
+    char title[51];
+    cout << "What is the title of the media?" << endl;
+    clear(title);
+    cin.get(title, 50);
+    cin.clear();
+    cin.ignore(1000, '\n');
+    look(title);
+  }
+  if (strcmp("QUIT", input) == 0) {
+    use = false;
+  }
+  }
+}
+
+void look(char* array) {
   vector<media*>::iterator it;
   for(it = data.begin(); it != data.end(); ++it) {
+    if(strcmp(array, (*it)->getTitle()) == 0) {
     cout << (*it)->getTitle() << endl;
     cout << (*it)->getYear() << endl;
     //cout << (*it)->getPublisher() << endl;
@@ -39,15 +64,21 @@ int main() {
       cout << dynamic_cast<videogame*>(*it)->getRating() << endl;
       cout << dynamic_cast<videogame*>(*it)->getPublisher() < endl;
     }
-    if((*it)-getType() == 2) {
+    if((*it)->getType() == 2) {
       cout << dynamic_cast<music*>(*it)->getPublisher() << endl;
       cout << dynamic_cast<music*>(*it)->getDurationg() << endl;
       cout << dynamic_cast<music*>(*it)->getArtist() << endl;
     }
+    if((*it)->getType() == 3) {
+      cout << dynamic_cast<movie*>(*it)->getDirector() <<endl;
+      cout << dynamic_cast<movie*>(*it)->getDuration() << endl;
+      cout << dynamic_cast<movie*>(*it)->getRating() << endl;
+    }
   }
+  }
+}
   
-  
-			     cout << "hi" << endl;
+//			     cout << "hi" << endl;
   // videogame* vg = new videogame();
   //media* m;
 
@@ -56,7 +87,14 @@ int main() {
 
   //cout << "hi" << endl;
   
-  
+void remove(char* array) {
+  for(it = data.begin(); it != data.end(); ++it) {
+    if(strcmp(array, (*it)->getTitle()) == 0) {
+      delete *it;
+      data.erase(it);
+      break;
+    }
+  }
 }
 
 media* add() {
