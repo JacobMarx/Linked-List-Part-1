@@ -16,13 +16,17 @@ movie::getType() {
 }
 
 //constructor
-movie::movie(char direc, int dur, int rat) {
+movie::movie(char* direc, int dur, int rat) {
   director = new char[strlen(direc) + 1];
   strcpy(director, direc);
   duration = 0;
   year = 0;
   rating = 0;
   title = 0;
+}
+
+movie::~movie() {
+  delete[] director;
 }
 
 void movie::setDuration(int dur) {

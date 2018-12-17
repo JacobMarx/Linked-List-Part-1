@@ -13,7 +13,8 @@ class media {
   virtual void setYear(int);
   char* getTitle();
   int getYear();
-
+  //Destructor
+  virtual ~media();
   media();
   
  protected:

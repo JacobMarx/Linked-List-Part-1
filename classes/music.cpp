@@ -26,6 +26,11 @@ music::music(char* pub, int dur, char* art) {
   title = 0;
 }
 
+music::~music() {
+  delete[] publisher;
+  delete[] artist;
+}
+
 void music::setDuration(int dur) {
   duration = dur;
 }
@@ -39,7 +44,7 @@ void music::setPublisher(char* pub) {
 void music::setArtist(char* art) {
   delete[] artist;
   artist = new char[strlen(art) + 1];
-  strcpy(publisher,art);
+  strcpy(artist,art);
 }
 
 char* music::getPublisher() {
