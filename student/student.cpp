@@ -12,13 +12,6 @@
 
 using namespace std;
 
-struct Student {
-  char firstN[15];
-  char lastN[15];
-  int id;
-  float gpa;
-};
-
 void DELETEStudent(vector<Student*>* list);
 void ADDStudent(vector<Student*>* list);
 void PRINTStudent(vector<Student*>* list);
