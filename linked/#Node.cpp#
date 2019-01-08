@@ -9,23 +9,13 @@ Node::Node() {
 }
 
 Node::~Node() {
- xdelete student;
+  
 }
 
 void Node::setNext(Node* newnext) {
   next = newnext;
 }
 
-Node* Node::getNext() {
+void Node::getNext() {
   return next;
 }
-
-void Node::setStudent(Student* newstudent) {
-  student = newstudent;
-}
-
-Student* Node::getStudent() {
-  return student;
-}
-
-

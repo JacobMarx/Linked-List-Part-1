@@ -1,9 +1,10 @@
 #include <iostream>
 #include "Node.h"
+#include "Student.h"
 
 using namespace std;
 
 int main() {
-  Node* node = new Node();
   Student* student = new Student();
+  Node* node = new Node(student);
 }

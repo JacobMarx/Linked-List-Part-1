@@ -35,6 +35,9 @@ videoGame::videoGame(const videoGame& source) {
   strcpy(title,source.title); 
 }
 */
+videogame::~videogame() {
+  delete[] publisher;
+}
 
 void videogame::setRating(float rat) {
   rating = rat;

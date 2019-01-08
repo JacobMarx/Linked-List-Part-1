@@ -1,0 +1,35 @@
+#ifndef STUDENT_H
+#define STUDENT_H
+
+class Student {
+
+ public:
+
+  Student(char* firstname, char* lastname, float gpa, int id);
+
+  ~Student();
+
+ char* getlastname()
+  char* getfirstname();
+  float getgpa();
+  int getid();
+
+  void setLastName(char*);
+
+  void setFirstName(char*);
+
+  void setGpa(float);
+
+  void setId(int);
+  
+ private:
+
+  //datamemebers
+  char* lastname;
+  char* firstname;
+  float gpa;
+  int id;
+  
+};
+
+#endif

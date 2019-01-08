@@ -1,0 +1,64 @@
+#include "Student.h"
+#include <cstring>
+
+using namespace std;
+
+Student::Student() {
+  this->firstname = new char;
+  this->lastname = new char;
+  this->gpa = 0;
+  this-> id = 0;
+}
+
+Student::Student(char* firstname, char* lastname, float gpa, int id) {
+  this->firstname = new char[strlen(firstname) +1];
+  strcpy(this->firstname, firstname);
+  this->lastname = new cha[strlen(lastname) +1];
+  strcpy(this->lastname, lastname);
+  this->id = id;
+  this->gpa = gpa;
+}
+
+Student:~Student() {
+  delete[] this->firstname;
+  delete[] this->lastname;
+  delete this->id;
+  delete this->gpa;
+}
+
+void setFirstName(char* firstname) {
+  delete[] this->firstname;
+  this->firstname = new char[strlen(firstname) +1];
+  strcpy(this->firstname. firstname);
+}
+
+void setLastName(char* lastname) {
+  delete[] this->lastname;
+  this->lastname = new char[strlen(lastname) +1];
+  strcpy(this->lastname, lastname);
+}
+
+void setGpa(float gpa) {
+  this->gpa = gpa;
+}
+
+void setId(int id) {
+  this->id = id;
+}
+
+char* Student::getlastname() {
+  return this->lastname;
+}
+
+char* Student::getfirstname() {
+  return this->firstname;
+}
+
+float Student::getgpa() {
+  return this->gpa;
+}
+
+int Student::getid() {
+  return this->id;
+}
+
